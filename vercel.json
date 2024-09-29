@@ -1,21 +1,21 @@
 {
-    "name": "subc",
-    "version": 2,
-    "builds": [
-        {
-            "src": "subconverter/subconverter.exe",
-            "use": "now-static-bin",
-            "config": {
-                "port": 25500,
-                "timeout": 1500,
-                "includeFiles": [
-                    "subconverter/**"
-                ],
-                "output": "subconverter/subconverter.exe"  // 添加 output 属性
-            }
-        }
-    ],
-    "routes": [
-        { "src": "/(.*)", "dest": "subconverter/subconverter.exe" }
-    ]
+  "name": "subc",
+  "version": 2,
+  "builds": [
+    {
+      "src": "subconverter/subconverter.exe",
+      "use": "@vercel/static",
+      "config": {
+        "includeFiles": [
+          "subconverter/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "subconverter/subconverter.exe"
+    }
+  ]
 }
