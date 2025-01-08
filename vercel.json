@@ -1,16 +1,20 @@
-{
-    "name": "subc",
-    "version": 2,
-    "builds": [
-        {
-            "src": "subconverter/subconverter.exe",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "subconverter" // Ensure this matches the output directory
-            }
-        }
-    ],
-    "routes": [
-        { "src": "/(.*)", "dest": "subconverter/subconverter.exe" }
-    ]
+"name": "subc",
+  "version": 2,
+  "builds": [
+    {
+      "src": "subconverter/subconverter.exe",
+      "use": "@vercel/static",
+      "config": {
+        "includeFiles": [
+          "subconverter/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "subconverter/subconverter.exe"
+    }
+  ]
 }
