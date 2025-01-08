@@ -4,16 +4,13 @@
     "builds": [
         {
             "src": "subconverter/subconverter.exe",
-            "use": "now-static-bin",
+            "use": "@vercel/static-build",
             "config": {
-                "output": "public",
-                "includeFiles": [
-                    "subconverter/**"
-                ]
+                "distDir": "subconverter" // Ensure this matches the output directory
             }
         }
     ],
     "routes": [
-        { "src": "/(.*)", "dest": "public/subconverter.exe" }
+        { "src": "/(.*)", "dest": "subconverter/subconverter.exe" }
     ]
 }
